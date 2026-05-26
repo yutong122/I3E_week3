@@ -6,6 +6,14 @@ public class Collectible : MonoBehaviour
     public int score = 1;
     public void Collect()
     {
-        Destroy(gameObject);
+        //Play the coin collect sound
+        var audio = GetComponent<AudioSource>();
+        audio.Play();
+        //Hide the coin
+        var renderer = GetComponent<MeshRenderer>();
+        renderer.enabled = false;
+        //Destroy the coin after 1 second
+        Destroy(gameObject, 1);
     }
+
 }
